@@ -54,11 +54,7 @@ Predictive Employee Attrition Analysis - IBM HR. (kaggle)
 
 **Repository Link:**
 
-> Add your GitHub repository URL here after uploading the project.
-
-Example:
-
-https://github.com/yourusername/Employee-Attrition-Prediction
+https://github.com/patilharshvardhan91007/Employee_Attrition_Prediction
 
 Repository Contents:
 
