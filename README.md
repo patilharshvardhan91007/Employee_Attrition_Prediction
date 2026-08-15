@@ -16,7 +16,7 @@ The developed system allows organizations to identify employees at risk of leavi
 
 # 2. Dataset Description
 
-The IBM HR Analytics Employee Attrition dataset was used for this study.
+Predictive Employee Attrition Analysis - IBM HR. (kaggle)
 
 ### Dataset Characteristics
 
