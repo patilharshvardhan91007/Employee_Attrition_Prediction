@@ -56,7 +56,7 @@ Predictive Employee Attrition Analysis - IBM HR. (kaggle)
 
 https://github.com/patilharshvardhan91007/Employee_Attrition_Prediction
 
-** Streamlit App:**
+**Streamlit App:**
 
 https://388jltushqzp89k2y8qege.streamlit.app/
 
