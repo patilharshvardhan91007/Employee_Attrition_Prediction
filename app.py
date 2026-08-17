@@ -160,7 +160,7 @@ if prediction_mode == "Single Employee":
 
     with col1:
 
-        age = st.number_input("*Age*",18, 60, 30)
+        age = st.number_input("*Age**",18, 60, 30)
 
         business_travel = st.selectbox(
             "Business Travel",
@@ -169,7 +169,7 @@ if prediction_mode == "Single Employee":
         )
 
         daily_rate = st.number_input(
-            "*Daily Rate*",
+            "*Daily Rate**",
             100,
             2000,
             800
@@ -182,22 +182,29 @@ if prediction_mode == "Single Employee":
         )
 
         distance = st.number_input(
-            "*Distance From Home*",
+            "*Distance From Home**",
             0,
             50,
             5
         )
 
-        education = st.selectbox(
+
+        education_map = {
+            "Below College": 1,
+            "College": 2,
+            "Bachelor": 3,
+            "Master": 4,
+            "Doctor": 5
+        }
+
+        education_label = st.selectbox(
             "Education",
-            {
-                "Below College":1,
-                "College":2,
-                "Bachelor":3,
-                "Master":4,
-                "Doctor":5
-            }
+            list(education_map.keys())
         )
+
+        education = education_map[education_label]
+
+
 
         education_field = st.selectbox(
             "Education Field",
@@ -255,6 +262,7 @@ if prediction_mode == "Single Employee":
         job_satisfaction = st.selectbox(
             "Job Satisfaction",
             [1,2,3,4],
+            index=2,
             help="""
             1 = Low
             2 = Medium
@@ -268,6 +276,7 @@ if prediction_mode == "Single Employee":
         marital_status = st.selectbox(
             "Marital Status",
             list(encoders["MaritalStatus"].classes_),
+            index=1,
             help=get_encoder_help("MaritalStatus")
         )
 
@@ -293,8 +302,13 @@ if prediction_mode == "Single Employee":
         )
 
         overtime = st.selectbox(
-            "*Over Time*",
-            [0, 1]
+            "*Over Time**",
+            [0, 1],
+            index=1,
+            help="""
+                0 = No
+                1 = Yes
+                """
         )
 
         salary_hike = st.number_input(
@@ -322,7 +336,7 @@ if prediction_mode == "Single Employee":
             """
         )
 
-        performance_rating = performance_rating_map[performance_rating]
+        performance = performance_rating_map[performance_rating]
 
         relationship = st.selectbox(
             "Relationship Satisfaction",
@@ -353,10 +367,10 @@ if prediction_mode == "Single Employee":
             """
         )
 
-        stock_option_level = stock_option_map[stock_option_level]
+        stock_option = stock_option_map[stock_option_level]
 
         total_years = st.number_input(
-            "*Total Working Years*",
+            "*Total Working Years**",
             0,
             40,
             10
@@ -387,10 +401,10 @@ if prediction_mode == "Single Employee":
             """
         )
 
-        work_life_balance = work_life_map[work_life_balance]
+        work_life = work_life_map[work_life_balance]
 
         years_company = st.number_input(
-            "*Years At Company*",
+            "*Years At Company**",
             0,
             40,
             5
@@ -411,7 +425,7 @@ if prediction_mode == "Single Employee":
         )
 
         years_manager = st.number_input(
-            "*Years With Current Manager*",
+            "*Years With Current Manager**",
             0,
             20,
             4
@@ -502,7 +516,6 @@ if prediction_mode == "Single Employee":
         })
 
         row = row[feature_order]
-
         model = models[selected_model]
 
         if selected_model in ["Logistic Regression", "KNN"]:
@@ -637,6 +650,8 @@ with col1:
     metrics_df = pd.read_csv("model_comparison.csv")
     selected_metrics = metrics_df[metrics_df["Model"] == selected_model].iloc[0]
     st.dataframe(selected_metrics)
+
+
 
 with col2:
     st.subheader("Confusion Matrix")
