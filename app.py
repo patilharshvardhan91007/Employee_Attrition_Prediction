@@ -229,7 +229,7 @@ if prediction_mode == "Single Employee":
         )
 
         hourly_rate = st.number_input(
-            "Hourly Rate",
+            "*Hourly Rate**",
             10,
             100,
             50
@@ -288,7 +288,7 @@ if prediction_mode == "Single Employee":
         )
 
         monthly_rate = st.number_input(
-            "Monthly Rate",
+            "*Monthly Rate**",
             1000,
             30000,
             10000
