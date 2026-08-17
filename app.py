@@ -281,7 +281,7 @@ if prediction_mode == "Single Employee":
         )
 
         monthly_income = st.number_input(
-            "*Monthly Income*",
+            "*Monthly Income**",
             1000,
             50000,
             5000
